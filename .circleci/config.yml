@@ -11,6 +11,6 @@ jobs:
           command: pipenv install # Pipfileを用いてインストールする
       - run:
           name: run test
-          command: pipenv run pytest | tee test-results # teeでテスト結果をファイルに保存する
+          command: pipenv run pytest --junitxml=test-reports/junit.xml
       - store_test_results: # テスト結果をCircleCIにアップロード
-          path: test-results
+          path: test-reports
