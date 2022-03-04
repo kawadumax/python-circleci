@@ -4,7 +4,7 @@ jobs:
     docker: # circleci上でのdockerによる実行環境の指定
       - image: cimg/python:3.10.2 # 自分の実行環境に合わせる cimgのpythonであればpipenvがインストール済み
     steps:
-      # - checkout
+      - checkout
       - run: python --version
       - run:
           name: install
@@ -12,5 +12,5 @@ jobs:
       - run:
           name: run test
           command: pipenv run pytest
-      # - store_test_results: # テスト結果をCircleCIにアップロード
-      #     path: test-results
+      - store_test_results: # テスト結果をCircleCIにアップロード
+          path: test-results
